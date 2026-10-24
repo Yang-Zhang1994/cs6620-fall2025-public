@@ -1,11 +1,11 @@
-name: Build and Push Docker Image
+name: Docker Build, Push, and Deploy
 
 on:
   push:
     branches: [ week02 ]
 
 jobs:
-  build-and-push:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -39,7 +39,7 @@ jobs:
             
   deploy:
     name: Deploy to EC2
-    needs: build-and-push
+    needs: build
     runs-on: ubuntu-latest
 
     env:
